@@ -96,6 +96,19 @@ export function drawWorld(game, ctx, cam, vw, vh) {
     ctx.fillStyle = '#f1c40f';
     ctx.beginPath(); ctx.arc(m.cx, m.cy, 6, 0, Math.PI * 2); ctx.fill();
   }
+  // hidden stash glints (untaken only)
+  if (game.missions && game.missions.stashList) {
+    const pulse = 8 + Math.sin(game.time * 3) * 3;
+    for (const s of game.missions.stashList()) {
+      if (s.taken) continue;
+      if (s.x < view.x0 || s.x > view.x1 || s.y < view.y0 || s.y > view.y1) continue;
+      ctx.strokeStyle = 'rgba(46,204,113,0.9)';
+      ctx.lineWidth = 2;
+      ctx.beginPath(); ctx.arc(s.x, s.y, pulse, 0, Math.PI * 2); ctx.stroke();
+      ctx.fillStyle = '#2ecc71';
+      ctx.beginPath(); ctx.arc(s.x, s.y, 4, 0, Math.PI * 2); ctx.fill();
+    }
+  }
   // cars, peds, enemies, player
   for (const car of game.cars) drawCar(ctx, car, game.time);
   for (const ped of game.peds) {

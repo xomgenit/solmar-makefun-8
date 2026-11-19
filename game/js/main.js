@@ -97,6 +97,7 @@ function startNewGame(seed) {
   showScreen(null);
   ensureAudio();
   refreshDebugHooks();
+  game.missions.start('first-wheels'); // NEW GAME starts the story chain
 }
 
 function continueGame() {
