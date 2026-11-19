@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SOLMAR — Streets of the Sun</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<canvas id="game"></canvas>
+<div id="hud" style="display:none">
+  <div id="top-left">
+    <div id="health-bar"><div id="health-fill"></div><span id="health-text">100</span></div>
+    <div id="cash">$200</div>
+    <div id="stars">☆☆☆☆☆</div>
+    <div id="zone">OLD TOWN</div>
+  </div>
+  <div id="objective">
+    <div id="objective-title">FREE ROAM</div>
+    <div id="objective-text"></div>
+  </div>
+  <canvas id="minimap" width="150" height="150"></canvas>
+  <div id="speedometer" style="display:none">
+    <span id="speed">0 km/h</span><br><span id="car-health">CAR 100%</span>
+  </div>
+  <div id="hint"></div>
+  <div id="banner"><div id="banner-title"></div><div id="banner-sub"></div></div>
+</div>
+<div id="title-screen" class="overlay">
+  <h1>SOLMAR</h1>
+  <h2>Streets of the Sun</h2>
+  <p>An original open-world crime game set in Solmar Bay. Danny "Dice" Marlow is back — and Vera Santos has work for him.</p>
+  <button id="new-game">NEW GAME</button>
+  <button id="continue-game" style="display:none">CONTINUE</button>
+  <button id="how-to">HOW TO PLAY</button>
+  <div id="howto-text" style="display:none">
+    WASD / arrows — walk &amp; drive · Shift — sprint · E — steal / exit car, respray, heal<br>
+    Mouse — aim · Click — shoot · Space — handbrake · Esc — pause<br>
+    Lose the heat: break line of sight and stay unseen, or respray at Sunset Auto Spa ($150).
+  </div>
+</div>
+<div id="pause-menu" class="overlay" style="display:none">
+  <h1>PAUSED</h1>
+  <div id="pause-stats"></div>
+  <button id="resume-game">RESUME</button>
+  <button id="save-game">SAVE GAME</button>
+  <button id="restart-mission">RESTART MISSION</button>
+  <button id="quit-title">QUIT TO TITLE</button>
+</div>
+<div id="wasted-screen" class="overlay" style="display:none">
+  <h1>WASTED</h1>
+  <p id="wasted-text"></p>
+  <button id="respawn-btn">RESPAWN AT HOSPITAL</button>
+</div>
+<div id="busted-screen" class="overlay" style="display:none">
+  <h1>BUSTED</h1>
+  <p>The SBPD takes you in. Bail: $150.</p>
+  <button id="bail-btn">PAY BAIL &amp; RESPAWN</button>
+</div>
+<script type="module" src="js/main.js"></script>
+</body>
+</html>
